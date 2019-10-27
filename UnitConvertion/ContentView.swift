@@ -36,11 +36,11 @@ struct ContentView: View {
         if unitFrom == 1{
             //To Celsius
             if unitTo == 0 {
-                return 3
+                return Double((inputValue - 32) * (5/9))
             }
             //To Kelvin
             else if unitTo == 2 {
-                return 4
+                return Double((inputValue + 459.67) * (5/9))
             }
         }
         
@@ -48,11 +48,11 @@ struct ContentView: View {
         if unitFrom == 2{
             //To Celsius
             if unitTo == 0{
-                return 5
+                return Double(inputValue - 273.15)
             }
             //To Kelvin
             else if unitTo == 1 {
-                return 6
+                return Double((inputValue * 9/5) - 459.67)
             }
         }
         
@@ -63,7 +63,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             Form{
-                TextField("Digit", text: $figure)
+                TextField("Enter Temperature Value", text: $figure)
                 
                 Section(header: Text("Unit From")) {
                     Picker("from", selection: $unitFrom) {
