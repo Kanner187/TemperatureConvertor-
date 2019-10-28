@@ -64,6 +64,7 @@ struct ContentView: View {
         NavigationView{
             Form{
                 TextField("Enter Temperature Value", text: $figure)
+                    .keyboardType(.decimalPad)
                 
                 Section(header: Text("Unit From")) {
                     Picker("from", selection: $unitFrom) {
